@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Lista de albums
+{% endblock title %}
+
+{% block content %}
+    <p class="p-2">
+        <strong><big>Bienvenido, en esta secciòn puedes visualizar los albums que has creado.</big></strong>
+    </p>
+    <a href="{% url 'album_manager:add_album' %}">
+        <strong><big> Crear Album</big></strong>
+    </a>
+
+    <div class="card-group">
+        {% for album in albums %}
+            <div class="card">
+                <img src="{{ album.picture.url }}" alt="" width="100%" height="100%">
+                <div class="card_body">
+                    <h5 class="card-title">
+                        <strong><big>{{ album.title }}</big></strong>
+                    </h5>
+                    <p class="card-text">Año de lanzamiento: {{ album.year }}</p>
+                    <p class="card-text">Artista: {{ album.artist }}</p>
+                    <a href="{% url 'album_manager:album' album.id %}" class="btn btn-primary">
+                        <i class="fa-solid fa-eye"></i> Ver Detalles
+                    </a>
+                    <a href="{% url 'album_manager:edit_album' album.id %}" class="btn btn-primary">
+                        <i class="fa-solid fa-pencil"></i> Editar
+                    </a>
+                    <a href="{% url 'album_manager:delete_album' album.id %}" class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i> Eliminar
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
+

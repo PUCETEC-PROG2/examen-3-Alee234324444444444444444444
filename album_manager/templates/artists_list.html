@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Lista de Artistas{% endblock title %}
+{% block content %}
+    <p class="p-2"><strong><big>En esta sección puedes visualizar los artistas.</big></strong></p>
+    <a href="{% url 'album_manager:add_artist' %}"><strong><big>Crear Artista</big></strong></a>
+
+    <div class="card-group">
+        {% for artist in artists %}
+            <div class="card">
+                
+                    <img src="{{ artist.picture.url }}" alt="">
+                
+                <div class="card-body">
+                    <h5 class="card-title"><strong><big>{{ artist.name }}</big></strong></h5>
+                    <p class="card-text"><strong>Nombre del Artista:</strong> {{ artist.name }}</p>
+                    <p class="card-text"><strong>País:</strong> {{ artist.country }}</p>
+                    <a href="{% url 'album_manager:artist' artist.id %}" class="btn btn-primary">
+                        <i class="fa-solid fa-eye"></i> Ver Detalles
+                    </a>
+                    <a href="{% url 'album_manager:edit_artist' artist.id %}" class="btn btn-primary">
+                        <i class="fa-solid fa-pencil"></i> Editar
+                    </a>
+                    <a href="{% url 'album_manager:delete_artist' artist.id %}" class="btn btn-danger">
+                        <i class="fa-solid fa-trash"></i> Eliminar
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
+
