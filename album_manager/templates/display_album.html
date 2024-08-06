@@ -5,9 +5,9 @@
     <p>Estas viendo el album: <strong>{{ album|capfirst }}</strong></p>
     <h3>Detalles</h3>
     <ul>
-        <li>Titulo: {{ album.title }}</li>
-        <li>Artista: {{ album.artist }}</li>
-        <li>Año de lanzamiento: {{ album.year }} </li>
-        <li>Genero: {{ album.gender }} </li>
+        <li><strong>Titulo:</strong>  {{ album.title }}</li>
+        <li><strong>Artista:</strong> {{ album.artist }}</li>
+        <li><strong>Año de lanzamiento:</strong> {{ album.year }} </li>
+        <li><strong>Genero:</strong> {{ album.gender }} </li>
     </ul>
 {% endblock content %}

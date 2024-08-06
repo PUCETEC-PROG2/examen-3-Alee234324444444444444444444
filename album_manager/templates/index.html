@@ -20,8 +20,8 @@
                     <h5 class="card-title">
                         <strong><big>{{ album.title }}</big></strong>
                     </h5>
-                    <p class="card-text">Año de lanzamiento: {{ album.year }}</p>
-                    <p class="card-text">Artista: {{ album.artist }}</p>
+                    <p class="card-text"><strong>Año de lanzamiento:</strong> {{ album.year }}</p>
+                    <p class="card-text"><strong>Artista:</strong> {{ album.artist }}</p>
                     <a href="{% url 'album_manager:album' album.id %}" class="btn btn-primary">
                         <i class="fa-solid fa-eye"></i> Ver Detalles
                     </a>
@@ -38,6 +38,3 @@
 {% endblock content %}
 
 
-{% comment "" %}
-    inge no se porque no funciono las imagenes hice tiodo lo que pude
-{% endcomment %}

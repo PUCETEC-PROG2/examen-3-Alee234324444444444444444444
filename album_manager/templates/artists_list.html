@@ -7,10 +7,11 @@
 
     <div class="card-group">
         {% for artist in artists %}
-            <div class="card">
+            <div class="card mb-3" style="max-width: 540px;">
+                {% if artist.picture %}
+                    <img src="{{ artist.picture.url }}" alt="" width="100%" height="100%">
                 
-                    <img src="{{ artist.picture.url }}" alt="">
-                
+                {% endif %}
                 <div class="card-body">
                     <h5 class="card-title"><strong><big>{{ artist.name }}</big></strong></h5>
                     <p class="card-text"><strong>Nombre del Artista:</strong> {{ artist.name }}</p>
@@ -29,4 +30,5 @@
         {% endfor %}
     </div>
 {% endblock content %}
+
 
